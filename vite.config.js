@@ -8,4 +8,7 @@ export default defineConfig({
     tailwindcss(), // ⬅️ this boots Tailwind v4
   ],
   base: "/tess-conscious-movement/",
+  build: {
+    outDir: "docs", // 👈 build into docs so GitHub can serve it
+  },
 });
