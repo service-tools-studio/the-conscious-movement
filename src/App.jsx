@@ -34,6 +34,11 @@ export default function App() {
 function Navbar() {
   const [open, setOpen] = useState(false);
 
+  const handleLogoClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setOpen(false);
+  };
+
   return (
     <header className="sticky top-0 z-50 bg-coconut/80 backdrop-blur border-b border-moss/10">
       <nav className="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
@@ -42,7 +47,8 @@ function Navbar() {
             <img
               src={Logo}
               alt="The Conscious Movement logo"
-              className="h-20 w-20 rounded-full object-cover"
+              className="h-20 w-20 rounded-full object-cover cursor-pointer"
+              onClick={handleLogoClick}
             />
           )}
         </div>
@@ -112,7 +118,10 @@ function Hero() {
   const imageOffset = -(scrollY * 0.05);
 
   return (
-    <section id="home" className="relative h-[80vh] md:h-screen flex items-center justify-center">
+    <section
+      id="home"
+      className="relative h-[80vh] md:h-screen flex items-center justify-center"
+    >
       {/* Background image with gentle parallax */}
       <div
         className="absolute inset-0 bg-center bg-cover"
@@ -133,7 +142,7 @@ function Hero() {
             THE
           </p>
 
-          <h1 className="font-script text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-dustyPink leading-tight md:leading-none inline-block px-2">
+          <h1 className="font-script text-7xl sm:text-8xl md:text-9xl lg:text-10xl text-dustyPink leading-tight md:leading-none inline-block px-2">
             Conscious
           </h1>
 
@@ -492,7 +501,7 @@ function SiteFooter() {
     <footer className="border-t border-moss/10 bg-coconut py-8 mt-8 bg-white">
       <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="text-xs text-moss/70 text-center md:text-left">
-          <p>© {new Date().getFullYear()} The Conscious Movement · Tess</p>
+          <p>© {new Date().getFullYear()} The Conscious Movement · Tess Trotter</p>
 
           {/* SOCIAL LINKS */}
           <div className="flex justify-center md:justify-start gap-4 mt-3">
