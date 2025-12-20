@@ -41,3 +41,21 @@
     @apply bg-coconut text-moss font-sans;
   }
 }
+
+/* hero text wrapper */
+.hero-title-wrapper {
+  overflow: visible;
+}
+
+/* the big "Conscious" line */
+.hero-title {
+  display: inline-block;
+  padding-inline: 0.5rem;
+  /* or margin-left: 8px; */
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    transform: none;
+  }
+}
