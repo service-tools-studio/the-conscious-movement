@@ -7,4 +7,5 @@ export default defineConfig({
     react(),
     tailwindcss(), // ⬅️ this boots Tailwind v4
   ],
+  base: "/tess-conscious-movement/",
 });
