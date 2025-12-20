@@ -71,7 +71,6 @@ function Navbar() {
           <span className="w-5 h-[2px] bg-moss" />
         </button>
 
-
         {open && (
           <div className="absolute top-full inset-x-0 bg-coconut border-t border-moss/10 md:hidden">
             <div className="flex flex-col px-4 py-3 space-y-2 text-sm">
@@ -96,7 +95,7 @@ function Navbar() {
 /**
  * HERO
  * - THE / Conscious / MOVEMENT over the cover image
- * - Both image and text move on scroll, but at different speeds
+ * - Image has subtle parallax on scroll
  */
 function Hero() {
   const [scrollY, setScrollY] = useState(0);
@@ -110,15 +109,10 @@ function Hero() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Image moves slowly, text moves a bit more for layered depth
   const imageOffset = -(scrollY * 0.05);
-  const textOffset = -(scrollY * 0.15);
 
   return (
-    <section
-      id="home"
-      className="relative h-[80vh] md:h-screen overflow-hidden"
-    >
+    <section id="home" className="relative h-[80vh] md:h-screen flex items-center justify-center">
       {/* Background image with gentle parallax */}
       <div
         className="absolute inset-0 bg-center bg-cover"
@@ -133,23 +127,17 @@ function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-moss/70 via-moss/40 to-pistachio/30" />
 
       {/* Centered title text */}
-      <div className="relative h-full flex items-center justify-center">
-        <div
-          className="text-center text-coconut"
-          style={{
-            transform: `translateY(${textOffset}px)`,
-            transition: "transform 0.05s linear",
-          }}
-        >
-          <p className="font-sans text-md md:text-base tracking-[0.6em] uppercase text-coconut mb-3 md:mb-4">
+      <div className="relative z-10 w-full px-6">
+        <div className="max-w-3xl mx-auto text-center text-coconut">
+          <p className="font-sans text-xs md:text-sm tracking-[0.6em] uppercase text-coconut mb-3 md:mb-4">
             THE
           </p>
 
-          <h1 className="font-script text-8xl md:text-9xl lg:text-10xl text-dustyPink leading-tight md:leading-none">
+          <h1 className="font-script text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-dustyPink leading-tight md:leading-none inline-block px-2">
             Conscious
           </h1>
 
-          <p className="font-sans text-md md:text-base tracking-[0.6em] uppercase text-coconut mt-3 md:mt-4">
+          <p className="font-sans text-xs md:text-sm tracking-[0.6em] uppercase text-coconut mt-3 md:mt-4">
             MOVEMENT
           </p>
         </div>
@@ -219,13 +207,26 @@ function About() {
             Sound Healing Practitioner
           </h2>
           <p className="text-sm md:text-base text-moss/90 leading-relaxed mb-4">
-            Tess is a professionally certified Sound Healing Practitioner through The Sound Healers Academy and a certified Barre Yoga instructor. She blends sound and mindful intention to create immersive healing experiences that support emotional release, nervous system regulation, and deep inner alignment.
+            Tess is a professionally certified Sound Healing Practitioner
+            through The Sound Healers Academy and a certified Barre Yoga
+            instructor. She blends sound and mindful intention to create
+            immersive healing experiences that support emotional release,
+            nervous system regulation, and deep inner alignment.
           </p>
           <p className="text-sm md:text-base text-moss/80 leading-relaxed mb-4">
-            As the founder of The Conscious Movement, Tess’ work is rooted in healing the self to awaken the collective. When we raise our own vibration, we naturally create a ripple effect and uplift the vibrations of every person we come into contact with. This is the heart of The Conscious Movement: individual healing as a catalyst for collective transformation.
+            As the founder of The Conscious Movement, Tess’ work is rooted in
+            healing the self to awaken the collective. When we raise our own
+            vibration, we naturally create a ripple effect and uplift the
+            vibrations of every person we come into contact with. This is the
+            heart of The Conscious Movement: individual healing as a catalyst
+            for collective transformation.
           </p>
           <p className="text-sm md:text-base text-moss/80 leading-relaxed mb-8">
-            Her mission is to help others reconnect with their inner wisdom, soften what feels heavy, and expand into their most aligned selves. Her vision is a world where conscious living becomes a shared practice, where each person’s healing contributes to a more vibrant, compassionate, and awakened community.
+            Her mission is to help others reconnect with their inner wisdom,
+            soften what feels heavy, and expand into their most aligned selves.
+            Her vision is a world where conscious living becomes a shared
+            practice, where each person’s healing contributes to a more vibrant,
+            compassionate, and awakened community.
           </p>
           <a
             href="https://calendly.com/theconsciousmvt"
@@ -376,9 +377,9 @@ function PublicEvents() {
         </h2>
 
         <p className="text-sm md:text-base text-moss/85 max-w-2xl mx-auto leading-relaxed mb-8">
-          Join a scheduled sound bath in Los Angeles and nearby areas. These events
-          are open to the public and an accessible way to experience the power
-          of sound healing, community grounding, and gentle nervous system
+          Join a scheduled sound bath in Los Angeles and nearby areas. These
+          events are open to the public and an accessible way to experience the
+          power of sound healing, community grounding, and gentle nervous system
           regulation.
         </p>
 
@@ -407,7 +408,6 @@ function Experience() {
         </h2>
         <div className="space-y-4 text-sm md:text-base text-moss/85 leading-relaxed">
           <p>
-            {/* TODO: Replace with Tess's flow */}
             Each session begins with gentle grounding, so your body has time to
             arrive. You&apos;ll be invited to rest comfortably—on a mat,
             bolster, or chair—while Tess guides you into a slower rhythm.
@@ -438,7 +438,6 @@ function Newsletter() {
           Notes from The Conscious Movement
         </h2>
         <p className="text-sm md:text-base text-moss/80 mb-6">
-          {/* TODO: Replace with list description */}
           Occasional love notes with upcoming events, nervous-system friendly
           practices, and gentle reminders to slow down. No spam, just softness.
         </p>
@@ -492,7 +491,6 @@ function SiteFooter() {
   return (
     <footer className="border-t border-moss/10 bg-coconut py-8 mt-8 bg-white">
       <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
-
         <div className="text-xs text-moss/70 text-center md:text-left">
           <p>© {new Date().getFullYear()} The Conscious Movement · Tess</p>
 
@@ -523,7 +521,6 @@ function SiteFooter() {
         </div>
       </div>
 
-      {/* moved to absolute bottom */}
       <div className="text-center text-xs text-moss/70 mt-6">
         Crafted with love and presence. |{" "}
         <a href="https://jasminweb.dev" target="_blank" rel="noreferrer">
@@ -533,5 +530,3 @@ function SiteFooter() {
     </footer>
   );
 }
-
-
