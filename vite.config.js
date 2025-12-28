@@ -5,10 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   plugins: [
     react(),
-    tailwindcss(), // ⬅️ this boots Tailwind v4
+    tailwindcss(),
   ],
-  base: "/tess-conscious-movement/",
-  build: {
-    outDir: "docs", // 👈 build into docs so GitHub can serve it
-  },
+  base: "/the-conscious-movement/",
 });
