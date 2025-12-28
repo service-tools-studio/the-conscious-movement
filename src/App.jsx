@@ -450,7 +450,7 @@ function Newsletter() {
 
         {/* MAILCHIMP FORM */}
         <form
-          action="https://YOUR-DC-HERE.list-manage.com/subscribe/post?u=XXXX&amp;id=XXXX"
+          action="https://linktr.us1.list-manage.com/subscribe/post?u=0e6b230514e11ce27810dba09&amp;id=f79fac55f5&amp;f_id=007bcbe1f0"
           method="post"
           target="_blank"
           noValidate
@@ -471,7 +471,7 @@ function Newsletter() {
           <div aria-hidden="true" className="absolute left-[-5000px]">
             <input
               type="text"
-              name="b_xxxx_xxxx"
+              name="b_0e6b230514e11ce27810dba09_f79fac55f5"
               tabIndex="-1"
               defaultValue=""
             />

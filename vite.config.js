@@ -7,5 +7,5 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: "/the-conscious-movement/",
+  base: "/",
 });
