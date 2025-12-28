@@ -8,8 +8,8 @@ const navLinks = [
   { label: "Home", href: "#home" },
   { label: "Meet Tess", href: "#about" },
   { label: "Offerings", href: "#offerings" },
-  { label: "What to Expect", href: "#experience" },
-  { label: "Events & Sessions", href: "#events" },
+  { label: "What Is Sound Healing?", href: "#experience" },
+  { label: "Public Events", href: "#events" },
   { label: "Stay Connected", href: "#newsletter" },
 ];
 
@@ -42,15 +42,21 @@ function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-coconut/80 backdrop-blur border-b border-moss/10">
       <nav className="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
-        <div className="flex items-center gap-3">
-          {Logo && (
-            <img
-              src={Logo}
-              alt="The Conscious Movement logo"
-              className="h-20 w-20 rounded-full object-cover cursor-pointer"
-              onClick={handleLogoClick}
-            />
-          )}
+        <div
+          className="flex flex-col items-center justify-center cursor-pointer leading-none"
+          onClick={handleLogoClick}
+        >
+          <span className="font-sans text-[10px] tracking-[0.35em] uppercase text-moss">
+            THE
+          </span>
+
+          <span className="font-script text-3xl md:text-4xl text-dustyPink leading-none">
+            Conscious
+          </span>
+
+          <span className="font-sans text-[10px] tracking-[0.35em] uppercase text-moss">
+            MOVEMENT
+          </span>
         </div>
 
         {/* Desktop links */}
@@ -386,12 +392,8 @@ function PublicEvents() {
         </h2>
 
         <p className="text-sm md:text-base text-moss/85 max-w-2xl mx-auto leading-relaxed mb-8">
-          Join a scheduled sound bath in Los Angeles and nearby areas. These
-          events are open to the public and an accessible way to experience the
-          power of sound healing, community grounding, and gentle nervous system
-          regulation.
+          Join a group sound bath virtually or in the Los Angeles area. These events are open to the public and an accessible way to experience the power of sound healing, community grounding, and gentle nervous system regulation.
         </p>
-
         <a
           href="https://www.eventbrite.com/o/tess-trotter-119759481951"
           target="_blank"
@@ -410,25 +412,20 @@ function Experience() {
     <section id="experience" className="py-16 md:py-20 bg-coconut">
       <div className="max-w-4xl mx-auto px-4">
         <p className="text-xs uppercase tracking-[0.3em] text-moss/60 mb-3">
-          What to Expect
+          What Is Sound Healing?
         </p>
         <h2 className="text-3xl md:text-4xl font-script text-moss mb-6">
-          A soft landing for your whole self
+          Healing through resonance
         </h2>
         <div className="space-y-4 text-sm md:text-base text-moss/85 leading-relaxed">
           <p>
-            Each session begins with gentle grounding, so your body has time to
-            arrive. You&apos;ll be invited to rest comfortably—on a mat,
-            bolster, or chair—while Tess guides you into a slower rhythm.
+            Sound healing is an ancient practice that uses sound and vibration to help bring the body, mind, and energy back into harmony. During a session, you’ll be immersed in calming tones from crystal singing bowls that gently guide your body into a deeply relaxed state.
           </p>
           <p>
-            Crystal alchemy bowls, chimes, and subtle sound textures create a
-            layered, cinematic experience that supports your nervous system in
-            shifting out of fight-or-flight and into deep rest.
+            Rather than “doing” anything, sound healing is about allowing yourself to receive. The vibrations can help quiet mental chatter, ease stress, and create space for emotional release and clarity.
           </p>
           <p>
-            There&apos;s no way to do it wrong. You&apos;re welcome exactly as
-            you are—tender, tired, curious, or anything in between.
+            <i>You can explore a sample session on my <a href="https://www.instagram.com/theconsciousmovement/" target="_blank" class="font-medium text-moss">Instagram</a> to get a feel for the experience.</i>
           </p>
         </div>
       </div>
