@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import HeroImage from "./assets/cover.png";
+import HeroImage from "./assets/cover.webp";
 import TessPhoto from "./assets/meet-tess.png";
 import Logo from "./assets/logo.jpg";
 import TshaBadge from "./assets/tsha-badge.png";
@@ -19,12 +19,14 @@ export default function App() {
       <Navbar />
       <main className="flex-1">
         <Hero />
-        <IntroSection />
-        <About />
-        <Offerings />
-        <PublicEvents />
-        <Experience />
-        <Newsletter />
+        <div className="relative z-10">
+          <IntroSection />
+          <About />
+          <Offerings />
+          <PublicEvents />
+          <Experience />
+          <Newsletter />
+        </div>
       </main>
       <SiteFooter />
     </div>
@@ -106,8 +108,8 @@ function Navbar() {
 
 /**
  * HERO
- * - THE / Conscious / MOVEMENT over the cover image
- * - Image has subtle parallax on scroll
+ * - Cover image + gradient are fixed (stationary in the viewport); content scrolls over them
+ * - Image keeps subtle parallax on scroll
  */
 function Hero() {
   const [scrollY, setScrollY] = useState(0);
@@ -124,40 +126,44 @@ function Hero() {
   const imageOffset = -(scrollY * 0.05);
 
   return (
-    <section
-      id="home"
-      className="relative h-[80vh] md:h-screen flex items-center justify-center"
-    >
-      {/* Background image with gentle parallax */}
+    <>
+      {/* Pinned backdrop — viewport-fixed; navbar stays above at z-50 */}
       <div
-        className="absolute inset-0 bg-center bg-cover"
-        style={{
-          backgroundImage: `url(${HeroImage})`,
-          transform: `translateY(${imageOffset}px)`,
-          transition: "transform 0.05s linear",
-        }}
-      />
-
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-moss/70 via-moss/40 to-pistachio/30" />
-
-      {/* Centered title text */}
-      <div className="relative z-10 w-full px-6">
-        <div className="max-w-3xl mx-auto text-center text-coconut">
-          <p className="font-sans text-xs md:text-sm tracking-[0.6em] uppercase text-coconut mb-3 md:mb-4">
-            THE
-          </p>
-
-          <h1 className="font-script text-7xl sm:text-8xl md:text-9xl lg:text-10xl text-dustyPink leading-tight md:leading-none inline-block px-2">
-            Conscious
-          </h1>
-
-          <p className="font-sans text-xs md:text-sm tracking-[0.6em] uppercase text-coconut mt-3 md:mt-4">
-            MOVEMENT
-          </p>
-        </div>
+        className="fixed inset-0 z-0 pointer-events-none"
+        aria-hidden="true"
+      >
+        <div
+          className="absolute inset-0 bg-center bg-cover"
+          style={{
+            backgroundImage: `url(${HeroImage})`,
+            transform: `translateY(${imageOffset}px)`,
+            transition: "transform 0.05s linear",
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-moss/70 via-moss/40 to-pistachio/30" />
       </div>
-    </section>
+
+      <section
+        id="home"
+        className="relative z-10 flex min-h-[80vh] md:min-h-screen items-center justify-center"
+      >
+        <div className="w-full px-6">
+          <div className="mx-auto max-w-3xl text-center text-coconut">
+            <p className="mb-3 font-sans text-xs tracking-[0.6em] text-coconut md:mb-4 md:text-sm uppercase">
+              THE
+            </p>
+
+            <h1 className="inline-block px-2 font-script text-7xl text-dustyPink leading-tight sm:text-8xl md:text-9xl md:leading-none lg:text-10xl">
+              Conscious
+            </h1>
+
+            <p className="mt-3 font-sans text-xs tracking-[0.6em] text-coconut uppercase md:mt-4 md:text-sm">
+              MOVEMENT
+            </p>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
 
@@ -168,7 +174,7 @@ function Hero() {
  */
 function IntroSection() {
   return (
-    <section className="py-12 md:py-16 bg-coconut">
+    <section className="bg-coconut py-12 md:py-16">
       <div className="max-w-3xl mx-auto px-4 text-center">
         <p className="text-xs tracking-[0.3em] uppercase mb-4 text-moss/70">
           Healing the Self to Awaken the Collective
@@ -269,7 +275,7 @@ function About() {
 
 function Offerings() {
   return (
-    <section id="offerings" className="py-16 md:py-20 bg-pistachio/15">
+    <section id="offerings" className="bg-coconut-light py-16 md:py-20">
       <div className="max-w-6xl mx-auto px-4">
         <p className="text-xs uppercase tracking-[0.3em] text-moss/60 mb-3">
           Offerings
@@ -409,7 +415,7 @@ function PublicEvents() {
 
 function Experience() {
   return (
-    <section id="experience" className="py-16 md:py-20 bg-coconut">
+    <section id="experience" className="bg-coconut-light py-16 md:py-20">
       <div className="max-w-4xl mx-auto px-4">
         <p className="text-xs uppercase tracking-[0.3em] text-moss/60 mb-3">
           What Is Sound Healing?
@@ -495,7 +501,7 @@ function Newsletter() {
 
 function SiteFooter() {
   return (
-    <footer className="border-t border-moss/10 bg-coconut py-8 mt-8 bg-white">
+    <footer className="relative z-10 border-t border-moss/10 bg-coconut py-8 mt-8 bg-white">
       <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="text-xs text-moss/70 text-center md:text-left">
           <p>© {new Date().getFullYear()} The Conscious Movement · Tess Trotter</p>
